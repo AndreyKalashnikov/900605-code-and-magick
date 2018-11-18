@@ -37,6 +37,7 @@ var renderStatistics = function (ctx, names, times) {
 
   /*Рисуем столбцы и их значения*/
   for (var i = 0; i < columnHeights.length; i++) {
+    names[i] === 'Вы' ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'rgb(0, 0, 255, '+ Math.random() + ')';
     ctx.fillText(Math.round(times[i]), 155 + 90 * i, 230 - columnHeights[i]);
     ctx.fillRect(155 + 90 * i, 245 - columnHeights[i], 40, columnHeights[i]);
   };
