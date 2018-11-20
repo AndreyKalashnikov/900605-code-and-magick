@@ -69,11 +69,11 @@ var renderStatistics = function (ctx, names, times) {
     };
     ctx.fillStyle = color;
 
-    var column_start_x = CLOUD_X + (CLOUD_WIDTH - count * COLUMN_WIDTH - (count - 1) * COLUMN_INTERVAL) / 2 + i * (COLUMN_WIDTH + COLUMN_INTERVAL);
+    var columnStartX = CLOUD_X + (CLOUD_WIDTH - count * COLUMN_WIDTH - (count - 1) * COLUMN_INTERVAL) / 2 + i * (COLUMN_WIDTH + COLUMN_INTERVAL);
     var columnHeight = Math.round(times[i] * (COLUMN_MAX_HEIGHT / maxTime));
-    ctx.fillText(names[i], column_start_x, 270);
-    ctx.fillText(Math.round(times[i]), column_start_x, 230 - columnHeight);
-    ctx.fillRect(column_start_x, 245 - columnHeight, COLUMN_WIDTH, columnHeight);
+    ctx.fillText(names[i], columnStartX, 270);
+    ctx.fillText(Math.round(times[i]), columnStartX, 230 - columnHeight);
+    ctx.fillRect(columnStartX, 245 - columnHeight, COLUMN_WIDTH, columnHeight);
   };
 
 
