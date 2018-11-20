@@ -25,13 +25,13 @@ var renderCloud = function (ctx, x ,y, color) {
   var pi = Math.PI;
   ctx.beginPath();
   ctx.arc(CLOUD_RADIUS + x, CLOUD_RADIUS + y, CLOUD_RADIUS, pi, pi * 3 / 2);
-  ctx.lineTo(CLOUD_WIDTH - CLOUD_RADIUS + x, 0 + y);
+  ctx.lineTo(CLOUD_WIDTH - CLOUD_RADIUS + x, y);
   ctx.arc(CLOUD_WIDTH - CLOUD_RADIUS + x, CLOUD_RADIUS + y, CLOUD_RADIUS, pi * 3 / 2, pi * 2);
   ctx.lineTo(CLOUD_WIDTH + x, CLOUD_HEIGHT - CLOUD_RADIUS + y);
   ctx.arc(CLOUD_WIDTH - CLOUD_RADIUS + x, CLOUD_HEIGHT - CLOUD_RADIUS + y, CLOUD_RADIUS, 0, pi / 2);
   ctx.lineTo(CLOUD_RADIUS + x, CLOUD_HEIGHT + y);
   ctx.arc(CLOUD_RADIUS + x, CLOUD_HEIGHT - CLOUD_RADIUS + y, CLOUD_RADIUS, pi / 2, pi);
-  ctx.lineTo(0 + x, CLOUD_RADIUS + y);
+  ctx.lineTo(x, CLOUD_RADIUS + y);
   ctx.fill();
 };
 
