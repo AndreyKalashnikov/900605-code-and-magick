@@ -47,8 +47,6 @@ var getMaxNumber = function (numbers) {
 
 var renderStatistics = function (ctx, names, times) {
 
-  var columnHeights = [];
-
   /*Тень и облако*/
   renderCloud(ctx, CLOUD_X + CLOUD_SHADOW, CLOUD_Y + CLOUD_SHADOW, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, 'rgb(255,255,255)');
