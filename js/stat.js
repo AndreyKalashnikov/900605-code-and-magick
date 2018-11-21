@@ -24,15 +24,20 @@ var GAP = 20;
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   var pi = Math.PI;
+  var CLOUD_RADIUS_X = CLOUD_RADIUS + x;
+  var CLOUD_COORDINATE_X = CLOUD_WIDTH + x;
+  var CLOUD_RADIUS_Y = CLOUD_RADIUS + y;
+  var CLOUD_COORDINATE_Y = CLOUD_HEIGHT + y;
+
   ctx.beginPath();
-  ctx.arc(CLOUD_RADIUS + x, CLOUD_RADIUS + y, CLOUD_RADIUS, pi, pi * 3 / 2);
-  ctx.lineTo(CLOUD_WIDTH - CLOUD_RADIUS + x, y);
-  ctx.arc(CLOUD_WIDTH - CLOUD_RADIUS + x, CLOUD_RADIUS + y, CLOUD_RADIUS, pi * 3 / 2, pi * 2);
-  ctx.lineTo(CLOUD_WIDTH + x, CLOUD_HEIGHT - CLOUD_RADIUS + y);
-  ctx.arc(CLOUD_WIDTH - CLOUD_RADIUS + x, CLOUD_HEIGHT - CLOUD_RADIUS + y, CLOUD_RADIUS, 0, pi / 2);
-  ctx.lineTo(CLOUD_RADIUS + x, CLOUD_HEIGHT + y);
-  ctx.arc(CLOUD_RADIUS + x, CLOUD_HEIGHT - CLOUD_RADIUS + y, CLOUD_RADIUS, pi / 2, pi);
-  ctx.lineTo(x, CLOUD_RADIUS + y);
+  ctx.arc(CLOUD_RADIUS_X, CLOUD_RADIUS_Y, CLOUD_RADIUS, pi, pi * 3 / 2);
+  ctx.lineTo(CLOUD_COORDINATE_X - CLOUD_RADIUS, y);
+  ctx.arc(CLOUD_COORDINATE_X - CLOUD_RADIUS, CLOUD_RADIUS_Y, CLOUD_RADIUS, pi * 3 / 2, pi * 2);
+  ctx.lineTo(CLOUD_COORDINATE_X, CLOUD_COORDINATE_Y - CLOUD_RADIUS);
+  ctx.arc(CLOUD_COORDINATE_X - CLOUD_RADIUS, CLOUD_COORDINATE_Y - CLOUD_RADIUS, CLOUD_RADIUS, 0, pi / 2);
+  ctx.lineTo(CLOUD_RADIUS_X, CLOUD_COORDINATE_Y);
+  ctx.arc(CLOUD_RADIUS_X, CLOUD_COORDINATE_Y - CLOUD_RADIUS, CLOUD_RADIUS, pi / 2, pi);
+  ctx.lineTo(x, CLOUD_RADIUS_Y);
   ctx.fill();
 };
 
