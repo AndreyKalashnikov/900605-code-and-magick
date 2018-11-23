@@ -5,6 +5,69 @@ var SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Валь
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
+var data = [{
+  firstName: 'Иван',
+  lastName: 'да Марья',
+  coatColor: 'rgb(101, 137, 164)',
+  eyesColor: 'black'
+},
+{
+  firstName: 'Мария',
+  lastName: 'Мирабелла',
+  coatColor: 'rgb(241, 43, 107)',
+  eyesColor: 'green'
+},
+{
+  firstName: 'Вашингтон',
+  lastName: 'Вальц',
+  coatColor: 'rgb(146, 100, 161)',
+  eyesColor: 'yellow'
+},
+{
+  firstName: 'Кристоф',
+  lastName: 'Топольницкая',
+  coatColor: 'rgb(56, 159, 117)',
+  eyesColor: 'blue'
+},
+{
+  firstName: 'Иван',
+  lastName: 'да Марья',
+  coatColor: 'rgb(101, 137, 164)',
+  eyesColor: 'black'
+},
+{
+  firstName: 'Мария',
+  lastName: 'Мирабелла',
+  coatColor: 'rgb(241, 43, 107)',
+  eyesColor: 'green'
+},
+{
+  firstName: 'Вашингтон',
+  lastName: 'Вальц',
+  coatColor: 'rgb(146, 100, 161)',
+  eyesColor: 'yellow'
+},
+{
+  firstName: 'Кристоф',
+  lastName: 'Топольницкая',
+  coatColor: 'rgb(56, 159, 117)',
+  eyesColor: 'blue'
+}
+];
+
+var getAll = function (array) {
+  return array;
+};
+
+var getByIndex = function (array, index) {
+  if (typeof index === 'number' && index >= 0 && !(index % 1) && !(index === Infinity)) {
+    return array[index];
+  } else {
+    console.log('Bad data');
+    return array[0];
+  }
+};
+
 document.querySelector('.setup').classList.remove('hidden');
 document.querySelector('.setup-similar').classList.remove('hidden');
 
@@ -35,6 +98,12 @@ for (var j = 0; j < 4; j++) {
   });
 
   var newWizard = renderWizard(wizards[j]);
+  /*eslint no-console: "error"*/
+
+  // custom console
+  console.log("Hello world!");
+
+  console.log(wizards);
   fragment.appendChild(newWizard);
 }
 
