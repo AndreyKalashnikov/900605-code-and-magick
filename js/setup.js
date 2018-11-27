@@ -76,10 +76,12 @@ var getRandomFromDiaposon = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-document.querySelector('.setup').classList.remove('hidden');
-document.querySelector('.setup-similar').classList.remove('hidden');
+var setup = document.querySelector('.setup');
+var setupSimilar = setup.querySelector('.setup-similar');
+setup.classList.remove('hidden');
+setupSimilar.classList.remove('hidden');
 
-var similarListElement = document.querySelector('.setup-similar-list');
+var similarListElement = setupSimilar.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
 .content.querySelector('.setup-similar-item');
 
