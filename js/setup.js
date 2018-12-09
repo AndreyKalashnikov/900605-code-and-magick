@@ -75,30 +75,58 @@ setupClose.addEventListener('keydown', function (evt) {
 });
 
 var submitButton = setup.querySelector('.setup-submit');
-submitButton.addEventListener('click', function () {
-  var form = setup.querySelector('form');
 
+var submitForm = function () {
+  var form = setup.querySelector('form');
   form.submit();
+};
+
+submitButton.addEventListener('click', function () {
+  submitForm();
+});
+
+submitButton.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    submitForm();
+  }
 });
 
 var setupWizard = setup.querySelector('.setup-wizard');
+
+var setColorFromArray = function (colorArray) {
+  var color = getByIndex(colorArray, getRandomFromDiaposon(0, colorArray.length - 1));
+  return color;
+};
+
+// Попытка обобщить три блока кожа ниже в один
+// var setupElementColor = function (elementClass, elementArray) {
+//   var setupElement = setupWizard.querySelector(elementClass);
+//   setupElement.addEventListner('click', function () {
+//     var newColor = getByIndex(elementArray, getRandomFromDiaposon(0, elementArray.length - 1));
+//     setupElement.style.fill = newColor;
+
+//   });
+// };
+
 var setupWizardCoat = setupWizard.querySelector('.wizard-coat');
 setupWizardCoat.addEventListener('click', function () {
-  var newColor = getByIndex(COAT_COLORS, getRandomFromDiaposon(0, COAT_COLORS.length - 1));
+  var newColor = setColorFromArray(COAT_COLORS);
   setupWizardCoat.style.fill = newColor;
-  // document.querySelector([name="coat-color"]);
+  document.querySelector('[name="coat-color"]').value = newColor;
 });
 
 var setupWizardEyes = setupWizard.querySelector('.wizard-eyes');
 setupWizardEyes.addEventListener('click', function () {
-  var newColor = getByIndex(EYES_COLORS, getRandomFromDiaposon(0, EYES_COLORS.length - 1));
+  var newColor = setColorFromArray(EYES_COLORS);
   setupWizardEyes.style.fill = newColor;
+  document.querySelector('[name="eyes-color"]').value = newColor;
 });
 
 var setupWizardFireball = setup.querySelector('.setup-fireball-wrap');
 setupWizardFireball.addEventListener('click', function () {
-  var newColor = getByIndex(FIREBALL_COLORS, getRandomFromDiaposon(0, FIREBALL_COLORS.length - 1));
+  var newColor = setColorFromArray(FIREBALL_COLORS);
   setupWizardFireball.style.background = newColor;
+  document.querySelector('[name="fireball-color"]').value = newColor;
 });
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
