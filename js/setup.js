@@ -77,7 +77,7 @@ setupClose.addEventListener('keydown', function (evt) {
 var submitButton = setup.querySelector('.setup-submit');
 submitButton.addEventListener('click', function () {
   var form = setup.querySelector('form');
-  console.log(form);
+
   form.submit();
 });
 
@@ -86,7 +86,7 @@ var setupWizardCoat = setupWizard.querySelector('.wizard-coat');
 setupWizardCoat.addEventListener('click', function () {
   var newColor = getByIndex(COAT_COLORS, getRandomFromDiaposon(0, COAT_COLORS.length - 1));
   setupWizardCoat.style.fill = newColor;
-  document.querySelector([name="coat-color"]);
+  // document.querySelector([name="coat-color"]);
 });
 
 var setupWizardEyes = setupWizard.querySelector('.wizard-eyes');
