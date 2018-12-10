@@ -21,7 +21,6 @@ var getByIndex = function (array, index) {
   if (typeof index === 'number' && index >= 0 && !(index % 1)) {
     return array[index];
   } else {
-    // console.log('Bad data');
     return array[0];
   }
 };
@@ -91,42 +90,31 @@ submitButton.addEventListener('keydown', function (evt) {
   }
 });
 
-var setupWizard = setup.querySelector('.setup-wizard');
-
 var setColorFromArray = function (colorArray) {
   var color = getByIndex(colorArray, getRandomFromDiaposon(0, colorArray.length - 1));
   return color;
 };
 
-// Попытка обобщить три блока кожа ниже в один
-// var setupElementColor = function (elementClass, elementArray) {
-//   var setupElement = setupWizard.querySelector(elementClass);
-//   setupElement.addEventListner('click', function () {
-//     var newColor = getByIndex(elementArray, getRandomFromDiaposon(0, elementArray.length - 1));
-//     setupElement.style.fill = newColor;
+var coatNewColor = document.querySelector('[name="coat-color"]');
+var eyesNewColor = document.querySelector('[name="eyes-color"]');
+var fireballNewColor = document.querySelector('[name="fireball-color"]');
 
-//   });
-// };
-
-var setupWizardCoat = setupWizard.querySelector('.wizard-coat');
-setupWizardCoat.addEventListener('click', function () {
-  var newColor = setColorFromArray(COAT_COLORS);
-  setupWizardCoat.style.fill = newColor;
-  document.querySelector('[name="coat-color"]').value = newColor;
-});
-
-var setupWizardEyes = setupWizard.querySelector('.wizard-eyes');
-setupWizardEyes.addEventListener('click', function () {
-  var newColor = setColorFromArray(EYES_COLORS);
-  setupWizardEyes.style.fill = newColor;
-  document.querySelector('[name="eyes-color"]').value = newColor;
-});
-
-var setupWizardFireball = setup.querySelector('.setup-fireball-wrap');
-setupWizardFireball.addEventListener('click', function () {
-  var newColor = setColorFromArray(FIREBALL_COLORS);
-  setupWizardFireball.style.background = newColor;
-  document.querySelector('[name="fireball-color"]').value = newColor;
+var setupPlayer = setup.querySelector('.setup-player');
+setupPlayer.addEventListener('click', function (evt) {
+  var target = evt.target;
+  if (target.classList.contains('wizard-coat')) {
+    var newCoatColor = setColorFromArray(COAT_COLORS);
+    target.style.fill = newCoatColor;
+    coatNewColor.value = newCoatColor;
+  } else if (target.classList.contains('wizard-eyes')) {
+    var newEyesColor = setColorFromArray(EYES_COLORS);
+    target.style.fill = newEyesColor;
+    eyesNewColor.value = newEyesColor;
+  } else if (target.classList.contains('setup-fireball')) {
+    var newFireballColor = setColorFromArray(FIREBALL_COLORS);
+    setup.querySelector('.setup-fireball-wrap').style.background = newFireballColor;
+    fireballNewColor.value = newFireballColor;
+  }
 });
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
